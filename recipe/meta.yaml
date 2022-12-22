@@ -1,5 +1,5 @@
 {% set name = "openmetadata-ingestion" %}
-{% set version = "0.13.0.3" %}
+{% set version = "0.13.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openmetadata-ingestion-{{ version }}.tar.gz
-  sha256: 55c9e6e13d54c3c1dc1041c0a877e708550a55b4d4727163231a5761b40d6dfd
+  sha256: 0efc787ce5315b66c6a0bee5a00f6d7501a2dd822c4b59e4163b0d05c54d60df
 
 build:
-  entry_points:
-    - metadata = metadata.cmd:metadata
+#  entry_points:
+#    - metadata = metadata.cmd:metadata
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -48,10 +48,15 @@ requirements:
     - pydantic >=1.9.0
     - pymysql >=1.0.2
     - requests >=2.23
+# Rerender
+    - grpcio-tools >=1.48.2
+    - cached-property >=1.5.2
+    - avro-python3 >=1.10.2
+    - chardet >=4.0.0
+    - pandas >=1.3.5
 
 test:
   imports:
-    - airflow_provider_openmetadata
     - metadata
 
 about:
