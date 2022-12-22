@@ -57,9 +57,7 @@ requirements:
 
 test:
   imports:
-#    - airflow_provider_openmetadata
-    - openmetadata_ingestion
-#    - metadata
+    - metadata
 
 about:
   home: https://open-metadata.org/
