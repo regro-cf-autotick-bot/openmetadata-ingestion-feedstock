@@ -44,12 +44,12 @@ requirements:
     - typing-compat >=0.1.0
     - googlesearch >=3.0.0
     - mypy_extensions >=0.4.3
-    - antlr4-python3-runtime >=4.9.2
+    - antlr4-python3-runtime >=4.9.2 # Causes run time issues with Python 37
     - pydantic >=1.9.0
     - pymysql >=1.0.2
     - requests >=2.23
 # Rerender
-    - grpcio-tools >=1.40.0
+    - grpcio-tools >=1.40.0  # Causes run time issues with Python 37
     - cached-property >=1.5.0
     - avro-python3 >=1.10.2
     - chardet >=4.0.0
