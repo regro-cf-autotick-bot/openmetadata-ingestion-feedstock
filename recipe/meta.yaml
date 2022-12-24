@@ -44,7 +44,9 @@ requirements:
     - typing-compat >=0.1.0
     - googlesearch >=3.0.0
     - mypy_extensions >=0.4.3
-    - antlr4-python3-runtime >=4.9.2 # Causes run time issues with Python 37
+#    - antlr4-python3-runtime >=4.9.2 # Causes run time issues with Python 37 use newer feedstock
+#      https://github.com/conda-forge/antlr-python-runtime-feedstock/blob/main/recipe/meta.yaml
+    - antlr-python-runtime >=4.9.2
     - pydantic >=1.9.0
     - pymysql >=1.0.2
     - requests >=2.23
