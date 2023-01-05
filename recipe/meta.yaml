@@ -1,5 +1,5 @@
 {% set name = "openmetadata-ingestion" %}
-{% set version = "0.13.1.1" %}
+{% set version = "0.13.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openmetadata-ingestion-{{ version }}.tar.gz
-  sha256: 84f95b667136d04d482e0b350e8707c6b6bd294b80191eecef4a54599640feac
+  sha256: 73bc40764a52610d44dd84252c2180f3e13401969954770231504e0c3e2db0e7
 
 build:
 #  entry_points:
@@ -46,12 +46,12 @@ requirements:
     - mypy_extensions >=0.4.3
 #    - antlr4-python3-runtime >=4.9.2 # Causes run time issues with Python 37 use newer feedstock
 #      https://github.com/conda-forge/antlr-python-runtime-feedstock/blob/main/recipe/meta.yaml
-    - antlr-python-runtime >=4.9.2
+    - antlr-python-runtime >=4.7.2
     - pydantic >=1.9.0
     - pymysql >=1.0.2
     - requests >=2.23
 # Rerender
-    - grpcio-tools >=1.40.0  # Causes run time issues with Python 37
+#    - grpcio-tools >=1.40.0  # Causes run time issues with Python 37
     - cached-property >=1.5.0
     - avro-python3 >=1.10.2
     - chardet >=4.0.0
