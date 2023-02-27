@@ -1,11 +1,11 @@
-About openmetadata-ingestion
-============================
+About openmetadata-ingestion-feedstock
+======================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmetadata-ingestion-feedstock/blob/main/LICENSE.txt)
 
 Home: https://open-metadata.org/
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openmetadata-ingestion-feedstock/blob/main/LICENSE.txt)
 
 Summary: Ingestion Framework for OpenMetadata
 
