@@ -14,7 +14,7 @@ build:
 #    - metadata = metadata.cmd:metadata
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -35,7 +35,7 @@ requirements:
 #      https://github.com/conda-forge/antlr-python-runtime-feedstock/blob/main/recipe/meta.yaml
     - antlr-python-runtime >=4.7.2
     - pyyaml
-    - idna <3,>=2.5
+    - idna >=2.5,<4
     - setuptools >=66.0.0,<69.0.0
     - jsonschema
     - typing-compat >=0.1.0,<0.2.0
@@ -44,7 +44,7 @@ requirements:
     - google-auth >=1.33.0
     - commonregex
     - pymysql >=1.0.2
-    - typing-extensions <=4.5.0
+    - typing-extensions <=4.8.0
     - wheel >=0.38.4,<0.42.0
     - requests >=2.23
     - python-dateutil >=2.8.1
