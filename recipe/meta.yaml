@@ -14,7 +14,7 @@ build:
     - metadata = metadata.cmd:metadata
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   host:
@@ -34,9 +34,8 @@ requirements:
     - cryptography
     - pymysql >=1.0.2
     - pyyaml
-    - grpcio-tools >=1.47.2 # Causes run time issues with Python 37
-    - avro-python3 >=1.10.2,<2.0 # avro >=1.11,<2.0 # causes both pip check and metadata --help to fail
-    - fastavro
+    - grpcio-tools >=1.47.2
+    - avro >=1.11,<2.0
     - jsonpatch >=1.32
     - requests >=2.23
     - python-jose >=3.3,<4.0
@@ -47,9 +46,7 @@ requirements:
     - idna >=2.5
     - jinja2 >=2.11.3
     - memory_profiler
-    - antlr4-python3-runtime >=4.9.2 # Causes run time issues with Python 37 use newer feedstock
-#      https://github.com/conda-forge/antlr-python-runtime-feedstock/blob/main/recipe/meta.yaml
-#    - antlr-python-runtime >=4.7.2
+    - antlr4-python3-runtime >=4.9.2
     - googlesearch >=3.0.0
     - mypy_extensions >=0.4.3
     - google-auth >=1.33.0
@@ -65,8 +62,7 @@ test:
     - airflow_provider_openmetadata
     - metadata
   commands:
-    #- pip check # openmetadata-ingestion 1.1.1.1 requires avro, which is not installed.
-    #- metadata --help # ModuleNotFoundError: No module named 'avro.errors'
+    #- metadata --help re.error: global flags not at the start of the expression at position 1
   requires:
     - pip
 
