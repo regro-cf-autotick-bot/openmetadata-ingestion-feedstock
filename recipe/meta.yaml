@@ -1,5 +1,5 @@
 {% set name = "openmetadata-ingestion" %}
-{% set version = "1.4.6.0" %}
+{% set version = "1.4.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: e3a0dae156bd82dd355a26b8dce1b62273e06ef792c63e858858b3609b87e50c
+  sha256: a341fafb79b2cca5a7820541d77ccf540193606c5fc67ddd21ecc6c6001f30eb
 
 build:
   entry_points:
