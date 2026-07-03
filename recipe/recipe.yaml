@@ -2,15 +2,14 @@
 schema_version: 1
 
 context:
-  name: openmetadata-ingestion
-  version: 1.11.8.1
+  version: "1.11.8.1"
 
 package:
-  name: ${{ name|lower }}
+  name: openmetadata-ingestion
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/openmetadata_ingestion-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/o/openmetadata-ingestion/openmetadata_ingestion-${{ version }}.tar.gz
   sha256: cab7d42be5be72b3f359983e48f536ebeaf33c61921e1f92ddaf5217747dc1a6
 
 build:
@@ -30,47 +29,57 @@ requirements:
     - python >=${{ python_min }},<4.0
     - mysql-connector-python >=9.1
     - packaging
+    # typing_inspect is the conda-forge package name for typing-inspect pypi package
     - typing_inspect
     - cryptography >=42.0.0
     - requests >=2.23
-    - chardet ==4.0.0
+    - chardet ==4.0.0  # Needs Equal
     - shapely
-    - antlr4-python3-runtime ==4.9.2
+    - antlr4-python3-runtime ==4.9.2  # Needs Equal
     - python-dotenv >=0.19.0
-    - cached-property ==1.5.2
+    - cached-property ==1.5.2  # Needs Equal
     - snowflake-connector-python >=3.13.1,<4.0.0
     - sqlalchemy >=1.4.0,<2
-    - pydantic-settings >=2.0,<3.dev0,>=2.7.0
+    - pydantic-settings >=2.0,<3.0,>=2.7.0
+    # mypy_extensions is the conda-forge package name for mypy-extensions pypi package
     - mypy_extensions >=0.4.3
-    - httpx >=0.28.0,<0.29.dev0
+    - httpx >=0.28.0,<0.29.0
     - email-validator >=2.0
-    - setuptools >=78.1.1,<81
+    - setuptools >=78.1.1,<<81
     - boto3 >=1.20,<2.0
-    - google-cloud-secret-manager ==2.24.0
+    - google-cloud-secret-manager ==2.24.0  # Needs Equal
+    # memory_profiler is the conda-forge package name for memory-profiler pypi package
     - memory_profiler
     - jsonpatch <2.0,>=1.24
     - jinja2 >=2.11.3
-    - azure-identity >=1.12,<2.dev0
+    - azure-identity >=1.12,<2.0
     - importlib-metadata >=4.13.0
     - google-crc32c
-    - pydantic >=2.0,<3.dev0,>=2.7.0,<2.12
-    - requests-aws4auth >=1.1,<2.dev0
+    - pydantic >=2.0,<3.0,>=2.7.0,<2.12
+    - requests-aws4auth >=1.1,<2.0
     - jaraco.functools <4.2.0
-    - collate-sqllineage >=2.0,<3.dev0
-    - pyyaml >=6.0,<7.dev0
+    - collate-sqllineage >=2.0,<3.0
+    # Manual Add of collate-sqlfluff
+    - collate-sqlfluff  # Needed for collate-sqllineage
+    - pyyaml >=6.0,<7.0
     - python-kubernetes >=21.0.0
     - python-dateutil >=2.8.1
     - collate-data-diff >=0.11.9
-    - tabulate ==0.9.0
-    - pymysql >=1.0,<2.dev0
+    - tabulate ==0.9.0  # Needs Equal
+    - pymysql >=1.0,<2.0
     - azure-keyvault-secrets
+    # Manual Add of cachetools
+    - cachetools
+
 tests:
   - python:
       imports:
         - airflow_provider_openmetadata
         - metadata
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - requirements:
       run:
         - pip
@@ -81,10 +90,13 @@ tests:
 
 about:
   homepage: https://open-metadata.org/
-  summary: Ingestion Framework for OpenMetadata
   license: CC0-1.0
   license_file: LICENSE
+  summary: Ingestion Framework for OpenMetadata
   repository: https://github.com/open-metadata/OpenMetadata
+  documentation: https://docs.open-metadata.org/
+  description: |
+    Ingestion Framework for OpenMetadata
 
 extra:
   recipe-maintainers:
